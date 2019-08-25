@@ -1,0 +1,30 @@
+.editorContainer {
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  grid-auto-rows: 1fr;
+  height: 100%;
+  position: relative;
+}
+
+.editor{
+  height: 100%;
+  font-size: 1.4rem;
+  position: relative;
+}
+
+.inlineToolbar{
+  position: fixed;
+  left: -999px;
+  opacity: 0;
+  top: 0px;
+
+  padding: var(--space-8);
+  background: lightblue;
+}
+
+.placeholderMenu{
+  position: relative;
+  min-width: 1rem;
+  min-height: 1rem;
+  height: min-content;
+}

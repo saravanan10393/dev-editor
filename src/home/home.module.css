@@ -1,0 +1,35 @@
+.container {
+  display: grid;
+  grid-template-rows: 4rem 1fr;
+  height: 100%;
+  width: 100%;
+}
+
+.banner {}
+
+.contentContainer {
+  display: grid;
+  grid-template-columns: 17rem 1fr 17rem;
+  grid-auto-rows: 1fr;
+  background: #ddd;
+}
+
+.editor{
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0, 0.4), 0 -1px 5px transparent;
+  padding: var(--space-12) var(--space-8);
+}
+
+.widgetContainers{
+  padding: 1rem;
+}
+
+.card{
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0,0,0, 0.4);
+  border-radius: 3px;
+}
+
+.shortCuts li{
+  padding: 0.5rem 1rem; 
+}
