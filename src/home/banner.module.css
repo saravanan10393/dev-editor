@@ -1,4 +1,17 @@
 .banner {
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+  
+  display: grid;
+  align-items: center;
+  text-align: center;
+
   height: 4rem;
   background: lightsteelblue;
+  color: #f6ff00;
+}
+
+.heading{
+  font-size: 1.6rem;
 }

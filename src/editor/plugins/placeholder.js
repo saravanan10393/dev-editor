@@ -3,7 +3,9 @@ import { findDOMNode } from 'slate-react';
 
 import { HeadingButton } from './heading';
 import { BlockquoteButton } from './blockquote';
-import { useEsc } from '../../hooks/onEsc'
+import { useEsc } from '../../hooks/use.esc'
+import { ImageButton } from './image';
+import { VideoButton } from './video';
 
 import styles from '../editor.module.css';
 
@@ -112,6 +114,8 @@ export function PlaceholderMenu({
           onMouseLeave={closeMenu}>
           <HeadingButton editor={editor} />
           <BlockquoteButton editor={editor} />
+          <ImageButton editor={editor} />
+          <VideoButton editor={editor} />
         </div>
       }
     </div>

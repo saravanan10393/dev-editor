@@ -24,12 +24,31 @@
   padding: 1rem;
 }
 
-.card{
-  background: #fff;
-  box-shadow: 0 0 3px rgba(0,0,0, 0.4);
-  border-radius: 3px;
+.shortCuts li{
+  padding: 0.5rem 1rem;
 }
 
-.shortCuts li{
-  padding: 0.5rem 1rem; 
+.publishBox{
+  position: sticky;
+  top: 5rem;
+}
+
+.toolBox{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.toolBox .tool{
+  padding: 0.5rem;
+  flex: 1 0;
+  cursor: pointer;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  word-wrap: break-word;
+  margin-right: 0.3rem;
+}
+
+.toolBox .tool:hover{
+  background: #ddd;
 }

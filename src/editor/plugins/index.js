@@ -4,3 +4,8 @@ export * from './blockquote';
 export * from './heading';
 export * from './placeholder';
 export * from './soft.break';
+export * from './link';
+export * from './inline.toolbar';
+export * from './image';
+export * from './code';
+export * from './video';

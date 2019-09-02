@@ -3,6 +3,8 @@ import React from 'react';
 import { Banner } from './banner';
 import { DevEditor } from '../editor';
 
+import { ToolBox } from './toolbox';
+
 import styles from './home.module.css';
 
 export function Home() {
@@ -17,7 +19,7 @@ export function Home() {
       <Banner />
       <div className={styles.contentContainer}>
         <div className={styles.widgetContainers}>
-          <ShortCuts />
+          <ToolBox />
         </div>
         <div className={styles.editor}>
           <DevEditor ref={editorRef} placeholder="Write your thoughts..." />
@@ -30,22 +32,6 @@ export function Home() {
   )
 }
 
-function ShortCuts() {
-  return (
-    <ul className={`${styles.card} ${styles.shortCuts}`}>
-      <li>Shortcuts</li>
-      <li>cmd/ctrl + 1 => Heading 1</li>
-      <li>cmd/ctrl + 2 => Heading 2</li>
-      <li>cmd/ctrl + P => Paragraph</li>
-      <li>cmd/ctrl + ' => Quote</li>
-      <li>cmd/ctrl + B => Bold</li>
-      <li>cmd/ctrl + I => Italic</li>
-      {/* <li>cmd/ctrl + U => Underline</li> */}
-      <li>cmd/ctrl + L => StrikeThrough</li>
-    </ul>
-  )
-}
-
 function PublishSection({
   getMarkdown
 }) {
@@ -54,7 +40,7 @@ function PublishSection({
 
   function copyToClipboard() {
     let str = getMarkdown();
-    let elem = document.createElement('input');
+    let elem = document.createElement('textarea');
     elem.value = str;
     elem.setAttribute('style', "position:fixed; top: '0px';");
     document.body.appendChild(elem);
@@ -67,9 +53,9 @@ function PublishSection({
   }
 
   return (
-    <div className={styles.card}>
+    <div className={`card ${styles.publishBox}`}>
       <button onClick={copyToClipboard}>
-        {isCopied ? 'markdown copies' : 'copy as markdown'}
+        {isCopied ? 'copied to clipboard' : 'copy as markdown'}
       </button>
     </div>
   )

@@ -4,13 +4,14 @@
 1. Basic formatting
 2. Headlines
 3. Quotes
+4. Images
+5. Links
+6. Code
 
 ### Pipeline
-1. Images
-2. Links
-3. Code
-4. Directly post to [dev.to](http://dev.to)
-5. Manage [dev.to](http://dev.to) blogs here
+1. List
+2. Directly post to [dev.to](http://dev.to)
+3. Manage [dev.to](http://dev.to) blogs here
 
 contributions welcome.
 ---

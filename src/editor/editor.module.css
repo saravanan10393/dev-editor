@@ -17,6 +17,7 @@
   left: -999px;
   opacity: 0;
   top: 0px;
+  z-index: 5;
 
   padding: var(--space-8);
   background: lightblue;
@@ -27,4 +28,16 @@
   min-width: 1rem;
   min-height: 1rem;
   height: min-content;
+}
+
+.linkContainer{
+  display: inline-block;
+}
+
+.linkContainer .linkBox{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }

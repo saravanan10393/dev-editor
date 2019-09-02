@@ -23,10 +23,6 @@ export function formatPlugin() {
         return next();
       }
     },
-    onSelect(evt, editor, next) {
-      console.log("dom selection called");
-      next();
-    },
     commands: {
       bold: editor => {
         editor.toggleMark("bold");
@@ -58,7 +54,7 @@ export function formatPlugin() {
         case "bold":
           return <b {...attributes}>{children}</b>;
         case "italic":
-          return <i {...attributes}>{children}</i>;
+          return <em {...attributes}>{children}</em>;
         case "underline":
           return <u {...attributes}>{children}</u>;
         case "strikeThrough":
@@ -78,7 +74,7 @@ export function BoldButton({
     editor.bold();
   }
 
-  const isActive = editor ? editor.isMarkActive('bold') : false;
+  const isActive = editor.isMarkActive('bold');
   let style = isActive ? { color: "red" } : {};
 
   return <button style={style} onClick={onClick}>B</button>
@@ -90,7 +86,7 @@ export function ItalicButton({
   const onClick = () => {
     editor.italic();
   }
-  const isActive = editor ? editor.isMarkActive('italic') : false;
+  const isActive = editor.isMarkActive('italic');
   let style = isActive ? { color: "red" } : {};
 
   return <button style={style} onClick={onClick}>I</button>
@@ -102,7 +98,7 @@ export function UnderlineButton({
   const onClick = () => {
     editor.underline();
   }
-  const isActive = editor ? editor.isMarkActive('underline') : false;
+  const isActive = editor.isMarkActive('underline');
   let style = isActive ? { color: "red" } : {};
 
   return <button style={style} onClick={onClick}>U</button>
@@ -114,7 +110,7 @@ export function StrikeThroughButton({
   const onClick = () => {
     editor.strikeThrough();
   }
-  const isActive = editor ? editor.isMarkActive('strikeThrough') : false;
+  const isActive = editor.isMarkActive('strikeThrough');
   let style = isActive ? { color: "red" } : {};
 
   return <button style={style} onClick={onClick}>S</button>

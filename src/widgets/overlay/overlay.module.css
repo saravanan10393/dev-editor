@@ -1,0 +1,27 @@
+.container{
+  width: inherit;
+  height: inherit;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.portal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0, 0.4);
+  z-index: 1;
+}
+
+.contentHolder{
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}

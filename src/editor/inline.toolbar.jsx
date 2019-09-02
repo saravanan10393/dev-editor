@@ -7,8 +7,12 @@ import {
   StrikeThroughButton
 } from './plugins/format';
 
+import {
+  LinkButton
+} from './plugins/link';
+
 import { getVisibleSelectionRect } from './utils';
-import { useEsc } from '../hooks/onEsc'
+import { useEsc } from '../hooks/use.esc'
 
 import styles from './editor.module.css';
 
@@ -45,6 +49,7 @@ export function InlineToolbar({
       <ItalicButton editor={editor} />
       {/* <UnderlineButton editor={editor} /> */}
       <StrikeThroughButton editor={editor} />
+      <LinkButton />
     </div>
   )
 }
