@@ -2,6 +2,7 @@
   "name": "dev-editor",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/dev-editor",
   "dependencies": {
     "immutable": "^4.0.0-rc.12",
     "is-hotkey": "^0.1.4",
