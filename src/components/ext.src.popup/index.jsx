@@ -1,8 +1,11 @@
 import React from 'react';
 import isUrl from 'is-url';
 
-import { Input } from '../widgets/input';
-import { Overlay } from '../widgets/overlay';
+import { Input } from '../../widgets/input';
+import { Overlay } from '../../widgets/overlay';
+import { PrimaryButton } from '../../widgets/button';
+
+import styles from './ext.src.popup.module.css';
 
 export function ExternalSrcPopup({
   title = "",
@@ -22,14 +25,14 @@ export function ExternalSrcPopup({
 
   return (
     <Overlay onClose={onDone}>
-      <div className="card">
-        <h2>{title}</h2>
+      <div className={`card ${styles.container}`}>
+        <h2 className={styles.title}>{title}</h2>
         <Input value={url} onChange={updateImageUrl}/>
+        <PrimaryButton disabled={Boolean(error)} onClick={() => onDone(url)}>Done</PrimaryButton>
         {
           error &&
           <p className="error">{error}</p>
         }
-        <button disabled={Boolean(error)} onClick={() => onDone(url)}>Done</button>
       </div>
     </Overlay>
   )

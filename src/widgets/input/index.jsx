@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './input.module.css';
+
 export function Input({
   onEnter = () => {},
   ...restProps
@@ -19,6 +21,6 @@ export function Input({
   }, [onEnter]);
 
   return (
-    <input ref={ref} {...restProps} />
+    <input className={styles.input} ref={ref} {...restProps} />
   );
 }

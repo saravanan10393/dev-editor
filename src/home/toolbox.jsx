@@ -3,7 +3,11 @@ import React from 'react';
 import { useCache } from '../hooks/use.cache';
 import { 
   ExternalSrcPopup
-} from '../components/external.src.popup';
+} from '../components/ext.src.popup';
+import {
+  Icon,
+  Size
+} from '../components/icon'
 
 import styles from './home.module.css';
 
@@ -17,7 +21,7 @@ export function ToolBox() {
     VIDEO: 'video'
   }
 
-  const embeds = [
+  const embeds = React.useMemo(() => ([
     {
       id: 'tag',
       label: 'Tag',
@@ -73,7 +77,7 @@ export function ToolBox() {
       label: 'Slide share',
       text: "{% slideshare <slide_id> %}"
     },
-  ]
+  ]), []);
 
   const onDone = (url) => {
     if(!url) {
@@ -103,36 +107,43 @@ export function ToolBox() {
   
   return (
     <div className={`card ${styles.toolBox}`}>
-      <div
+      <Icon
+        name="h1"
         title="Meta+1"
         className={styles.tool}
-        onClick={() => getEditor().h1()}>H1</div>
-      <div
+        onClick={() => getEditor().h1()} />
+      <Icon
+        name="h2"
         title="Meta+2"
         className={styles.tool}
-        onClick={() => getEditor().h2()}>H2</div>
-      <div
+        onClick={() => getEditor().h2()} />
+      <Icon
+        name="quote"
         title="Meta+'"
         className={styles.tool}
-        onClick={() => getEditor().quote()}>Quote</div>
-      <div
+        onClick={() => getEditor().quote()} />
+      <Icon
+        name="code"
         title="Meta+Shift+c"
         className={styles.tool}
-        onClick={() => getEditor().code()}>Code</div>
-      <div
+        onClick={() => getEditor().code()} />
+      <Icon
+        name="image"
         title="Meta+Shift+i"
         className={styles.tool}
-        onClick={() => openExtSrc(extSrcs.IMAGE)}>Img</div>
-      <div
+        onClick={() => openExtSrc(extSrcs.IMAGE)} />
+      <Icon
+        name="video"
         title="Meta+Shift+v"
         className={styles.tool}
-        onClick={() => openExtSrc(extSrcs.VIDEO)}>Video</div>
+        onClick={() => openExtSrc(extSrcs.VIDEO)} />
       {
         embeds.map(embed => (
-          <div
+          <Icon
+            name={embed.id}
             title={embed.id}
             className={styles.tool}
-            onClick={() => embedExtSrc(embed)}>{embed.label}</div>
+            onClick={() => embedExtSrc(embed)} />
         ))
       }
       {

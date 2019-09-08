@@ -1,14 +1,13 @@
 .editorContainer {
   display: grid;
-  grid-template-columns: 1rem 1fr;
-  grid-auto-rows: 1fr;
+  grid-template-columns: 1rem minmax(0,1fr);
+  grid-auto-rows: minmax(0,1fr);
   height: 100%;
   position: relative;
 }
 
 .editor{
   height: 100%;
-  font-size: 1.4rem;
   position: relative;
 }
 

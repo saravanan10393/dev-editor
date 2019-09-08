@@ -3,7 +3,7 @@ import isUrl from 'is-url';
 
 import {
   ExternalSrcPopup
-} from '../../components/external.src.popup';
+} from '../../components/ext.src.popup';
 
 export function videoPlugin() {
   return {

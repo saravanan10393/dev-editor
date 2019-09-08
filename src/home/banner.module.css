@@ -2,16 +2,18 @@
   position: sticky;
   top: 0px;
   z-index: 2;
+  padding: 0 var(--space-12);
+  background: var(--white);
   
   display: grid;
+  grid-template-columns: max-content minmax(0,1fr) max-content max-content;
+  grid-column-gap: 1rem;
   align-items: center;
-  text-align: center;
-
-  height: 4rem;
-  background: lightsteelblue;
-  color: #f6ff00;
+  border-bottom: 1px solid;
+  border-bottom-color: var(--gray-3);
+  box-shadow: 0 0 5px var(--gray-3);
 }
 
-.heading{
-  font-size: 1.6rem;
+.banner img{
+  cursor: pointer;
 }

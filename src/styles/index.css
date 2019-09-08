@@ -9,13 +9,16 @@ body{
   font-family: 'Roboto', sans-serif;
   font-size: 10px;
   font-weight: 400;
-  letter-spacing: 0.4px;
+  letter-spacing: 1px;
+  background: var(--white);
 }
 
 #root{
   height: 100%;
   width: 100%;
-  color: #263045;
+  color: var(--gray-1);
+  font-size: 2rem;
+  overflow: hidden;
 }
 
 @import 'common.css';
@@ -30,12 +33,18 @@ b, strong {
 
 h1{
   font-size: 3.6rem;
+  color: var(--gray-1);
 }
 
 h2{
   font-size: 2.8rem;
+  color: var(--gray-1);
 }
 
 em{
   font-style: italic;
+}
+
+a{
+  color: var(--primary-color);
 }

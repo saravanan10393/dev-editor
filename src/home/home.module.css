@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  grid-template-rows: 4rem 1fr;
+  grid-template-rows: 6rem minmax(0, 1fr);
   height: 100%;
   width: 100%;
 }
@@ -8,20 +8,19 @@
 .banner {}
 
 .contentContainer {
+  padding: 0 15%;
   display: grid;
-  grid-template-columns: 17rem 1fr 17rem;
-  grid-auto-rows: 1fr;
-  background: #ddd;
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
+  grid-auto-rows: minmax(0, 1fr);
+  overflow: auto;
 }
 
 .editor{
-  background: #fff;
-  box-shadow: 0 0 5px rgba(0,0,0, 0.4), 0 -1px 5px transparent;
-  padding: var(--space-12) var(--space-8);
+  padding: var(--space-20) var(--space-8);
 }
 
 .widgetContainers{
-  padding: 1rem;
+  padding: var(--space-20);
 }
 
 .shortCuts li{
@@ -30,23 +29,27 @@
 
 .publishBox{
   position: sticky;
-  top: 5rem;
+  top: 2rem;
 }
 
 .toolBox{
-  display: flex;
-  flex-wrap: wrap;
+  position: sticky;
+  top: 2rem;
+
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: var(--space-20);
+  justify-content: center;
+  font-size: 1.8rem;
+  padding: var(--space-12);
 }
 
 .toolBox .tool{
-  padding: 0.5rem;
-  flex: 1 0;
   cursor: pointer;
   display: grid;
   align-items: center;
   justify-content: center;
   word-wrap: break-word;
-  margin-right: 0.3rem;
 }
 
 .toolBox .tool:hover{

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Banner } from './banner';
 import { DevEditor } from '../editor';
+import { PrimaryButton } from '../widgets/button';
 
 import { ToolBox } from './toolbox';
 
@@ -54,9 +55,9 @@ function PublishSection({
 
   return (
     <div className={`card ${styles.publishBox}`}>
-      <button onClick={copyToClipboard}>
-        {isCopied ? 'copied to clipboard' : 'copy as markdown'}
-      </button>
+      <PrimaryButton onClick={copyToClipboard}>
+        {isCopied ? 'copied to clipboard' : 'Copy markdown'}
+      </PrimaryButton>
     </div>
   )
 }

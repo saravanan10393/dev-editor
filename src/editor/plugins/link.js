@@ -17,7 +17,7 @@ export function linkPlugin() {
         .insertText(url)
         .moveAnchorTo(editor.value.selection.anchor.offset - url.length)
         .moveEndTo(editor.value.selection.focus.offset)
-        .toggleLink(url)
+        .toggleLink({ url })
         .moveToEnd();
     },
     commands: {
@@ -50,7 +50,7 @@ export function linkPlugin() {
     },
     renderInline({ node, attributes, children }, editor, next) {
       if(node.type === 'link') {
-        return <a style={{color: "red"}} href={node.data.get('url')} {...attributes}>{children}</a>
+        return <a href={node.data.get('url')} {...attributes}>{children}</a>
       }
       return next();
     }

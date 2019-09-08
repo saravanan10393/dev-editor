@@ -5,4 +5,13 @@
   --space-16: 1.6rem;
   --space-20: 2rem;
   --space-24: 2.4rem;
+
+  --primary-color: #5CA5F9;
+  --primary-color-active: #538CD1;
+  --white: #FEFEFE;
+  --highlight-color: #D4E2F2;
+  --gray-1: #64635D;
+  --gray-2: #A7A7A7;
+  --gray-3: #CFCFCF;
 }
+
