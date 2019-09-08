@@ -19,13 +19,13 @@ export function Home() {
     <div className={styles.container}>
       <Banner />
       <div className={styles.contentContainer}>
-        <div className={styles.widgetContainers}>
+        <div className={`${styles.widgetContainers} ${styles.left}`}>
           <ToolBox />
         </div>
         <div className={styles.editor}>
           <DevEditor ref={editorRef} placeholder="Write your thoughts..." />
         </div>
-        <div className={styles.widgetContainers}>
+        <div className={`${styles.widgetContainers} ${styles.right}`}>
           <PublishSection getMarkdown={getMarkdown} />
         </div>
       </div>

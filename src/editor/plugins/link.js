@@ -1,6 +1,8 @@
 import React from 'react';
 import isUrl from 'is-url';
 
+import { isImageUrl, isVideoUrl } from './utils';
+
 import { Input } from '../../widgets/input';
 
 import styles from '../editor.module.css';
@@ -12,13 +14,25 @@ export function linkPlugin() {
       if(!isUrl(url)) {
         return next();
       }
-      
-      editor
-        .insertText(url)
-        .moveAnchorTo(editor.value.selection.anchor.offset - url.length)
-        .moveEndTo(editor.value.selection.focus.offset)
-        .toggleLink({ url })
-        .moveToEnd();
+
+      if(isImageUrl(url)) {
+        editor.insertImage({
+          src: url,
+          alt: "alt text"
+        });
+      } else if(isVideoUrl(url)) {
+        editor.insertVideo({
+          src: url,
+          alt: "alt text"
+        });
+      } else {
+        editor
+          .insertText(url)
+          .moveAnchorTo(editor.value.selection.anchor.offset - url.length)
+          .moveEndTo(editor.value.selection.focus.offset)
+          .toggleLink({ url })
+          .moveToEnd();
+      }
     },
     commands: {
       toggleLink(editor, args) {

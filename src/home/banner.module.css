@@ -1,9 +1,12 @@
 .banner {
-  position: sticky;
+  position: fixed;
   top: 0px;
+  left: 0px;
+  right: 0px;
   z-index: 2;
   padding: 0 var(--space-12);
   background: var(--white);
+  height: 6rem;
   
   display: grid;
   grid-template-columns: max-content minmax(0,1fr) max-content max-content;

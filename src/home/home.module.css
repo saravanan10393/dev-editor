@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  grid-template-rows: 6rem minmax(0, 1fr);
+  grid-template-rows: minmax(0,1fr);
   height: 100%;
   width: 100%;
 }
@@ -8,19 +8,28 @@
 .banner {}
 
 .contentContainer {
-  padding: 0 15%;
-  display: grid;
-  grid-template-columns: max-content minmax(0, 1fr) max-content;
-  grid-auto-rows: minmax(0, 1fr);
-  overflow: auto;
+  padding: 0 25%;
+  margin-top: 8rem;
 }
 
 .editor{
-  padding: var(--space-20) var(--space-8);
+  padding: var(--space-24) var(--space-8);
+  height: calc(100% - 4.8rem);
 }
 
 .widgetContainers{
+  position: fixed;
+  top: 8rem;
   padding: var(--space-20);
+}
+
+.widgetContainers.left{
+  /* left side padding of editor - width of toolbox */
+  left: calc(25% - 130px);
+}
+
+.widgetContainers.right{
+  left: 76%;
 }
 
 .shortCuts li{
