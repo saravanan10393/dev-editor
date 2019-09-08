@@ -49,6 +49,7 @@ function serializeInline(node) {
 
 function serializeText(textNode) {
   let str = textNode.text;
+  if(!str) return "";
   for (let mark of textNode.marks || []) {
     str = formatsSyntax[mark.type](str);
   }
