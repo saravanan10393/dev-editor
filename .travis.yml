@@ -1,0 +1,13 @@
+language: node_js
+install:
+  npm install
+script:
+  npm run build
+deploy:
+  npx firebase deploy --token $FIREBASE_TOKEN
+notifications:
+  email:
+    recipients:
+      - ${NOTIFICATION_EMAIL}
+    on_success: always
+    on_failure: always

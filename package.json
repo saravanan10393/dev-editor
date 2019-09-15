@@ -32,5 +32,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "firebase-tools": "^7.3.2",
+    "npx": "^10.2.0"
   }
 }
