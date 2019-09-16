@@ -17,3 +17,5 @@ contributions welcome.
 ---
 
 This editor is built using [slate](https://docs.slatejs.org) framework in react.
+
+Test commit
