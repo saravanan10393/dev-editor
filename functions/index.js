@@ -1,10 +1,8 @@
 const functions = require('firebase-functions');
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-exports.perfTest = functions.https.onRequest((request, response) => {
-  console.log("======= Request body =====", request.body);
-  console.log("======= Request itself =====", request);
-  response.send("Hello from Firebase!");
-});
+const { onPullRequestHandler } = require('./on_pull_request');
+const { onBuildCompleteHandler } = require('./on_build_complete');
+
+exports.perfTest = functions.https.onRequest(onPullRequestHandler);
+
+exports.onBuildComplete = functions.https.onRequest(onBuildCompleteHandler);

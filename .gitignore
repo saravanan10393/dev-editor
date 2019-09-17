@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 /functions/node_modules
+/functions/web_perf_test.pem
+/functions/web_perf_test_public.pem
 
 # testing
 /coverage
