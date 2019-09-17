@@ -19,7 +19,7 @@ function createGitCheck({
       "Authorization": "token "+apiToken
     },
     body: JSON.stringify({
-      name: "Running performance test",
+      name: "Page speed test",
       head_sha: commitSha,
       status: CHECK_STATUS.IN_PROGRESS,
       started_at: new Date().toISOString()
@@ -66,7 +66,7 @@ function triggerBuild({
 exports.onPullRequestHandler = (request, response) => {
   console.log("======= Request body =====", request.body);
   let webHook = request.body;
-  let allowedAction = ['opened'];
+  let allowedAction = ['opened', 'reopened'];
   
   if(allowedAction.includes(webHook.action) === false) {
     console.info("=== Ignoring other git events ===", webHook.action);
