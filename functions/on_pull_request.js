@@ -66,7 +66,7 @@ function triggerBuild({
 exports.onPullRequestHandler = (request, response) => {
   console.log("======= Request body =====", request.body);
   let webHook = request.body;
-  let allowedAction = ['opened', 'reopened'];
+  let allowedAction = ['opened', 'reopened', 'synchronize'];
   
   if(allowedAction.includes(webHook.action) === false) {
     console.info("=== Ignoring other git events ===", webHook.action);
