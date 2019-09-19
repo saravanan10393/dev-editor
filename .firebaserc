@@ -1,5 +1,6 @@
 {
   "projects": {
-    "dev-editor": "dev-editor-9fe5b"
+    "dev-editor": "dev-editor-9fe5b",
+    "default": "dev-editor-9fe5b"
   }
 }
