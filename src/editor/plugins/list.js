@@ -1,13 +1,49 @@
 import React from "react";
+import { isKeyHotkey } from "is-hotkey";
 
-export function blockquotePlugin() {
+const isCmdEnter = isKeyHotkey("mod+Enter");
+
+const isListNode = (node) => ['unOrderedList', 'orderedList']
+export function listPlugin() {
   return {
+    schema: {
+      blocks: {
+        orderedList: {
+          nodes: [{
+            type: "list-item"
+          }]
+        },
+        unOrderedList: {
+          nodes: [{
+            type: "list-item"
+          }]
+        }
+      },
+    },
     onKeyDown: (evt, editor, next) => {
-      if (
+      if(
+        !isCmdEnter(evt) &&
         evt.key === 'Enter' &&
-        evt.shiftKey === false &&
-        editor.getCurrentBlockType() === 'blockquote') {
-        editor.insertBlock('paragraph');
+        editor.getCurrentBlockType() === 'list-item') {
+        return editor
+          .insertBlock('list-item');
+      } else if (
+        isCmdEnter(evt) &&
+        editor.getCurrentBlockType() === 'list-item') {
+        return editor
+          .insertBlock('paragraph')
+          .unwrapBlock("unOrderedList")
+          .unwrapBlock("orderedList");
+      }else if(
+        evt.key === 'Backspace' &&
+        editor.value.startBlock.type === 'list-item' &&
+        editor.value.document.getClosest(editor.value.startBlock.key, isListNode).text.trim().length === 0
+      ) {
+        editor
+        .setBlocks('paragraph')
+        .unwrapBlock("unOrderedList")
+        .unwrapBlock("orderedList");
+        return next();
       }else {
         return next();
       }
@@ -16,7 +52,7 @@ export function blockquotePlugin() {
       insertList: (editor, listType) => {
         let isList = editor.isBlockOfType('list-item');
         const isSameListType = editor.value.blocks.some(block => {
-          return !!document.getClosest(block.key, parent => parent.type === listType)
+          return !!editor.value.document.getClosest(block.key, parent => parent.type === listType)
         });
         if (isList && isSameListType) {
           editor.setBlocks('paragraph')
@@ -33,7 +69,7 @@ export function blockquotePlugin() {
         }
       }
     },
-    renderBlock = (props, editor, next) => {
+    renderBlock (props, editor, next) {
       const { attributes, children, node } = props
       switch (node.type) {
         case 'unOrderedList':

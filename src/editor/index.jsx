@@ -13,7 +13,9 @@ import {
   // placeholderPlugin,
   inLineToolbarPlugin,
   imagePlugin,
-  videoPlugin
+  videoPlugin,
+  listPlugin,
+  embedPlugin
 } from './plugins';
 
 import { markdown } from './markdown.serializer';
@@ -48,7 +50,6 @@ export const DevEditor = React.forwardRef(function DevEditor({
   let editor = React.useRef();
 
   const plugins = React.useMemo(() => [
-    utilPlugin(),
     formatPlugin(),
     blockquotePlugin(),
     headingPlugin(),
@@ -57,9 +58,27 @@ export const DevEditor = React.forwardRef(function DevEditor({
     imagePlugin(),
     videoPlugin(),
     inLineToolbarPlugin(),
+    listPlugin(),
+    embedPlugin(),
     // placeholderPlugin(),
     codePlugin(),
+    utilPlugin()
   ], [])
+
+  React.useEffect(() => {
+    let devContent = localStorage.getItem('dev-content');
+    if(devContent && devContent.trim()) {
+      setValue(Value.fromJSON(JSON.parse(devContent)));
+    }
+  }, []);
+
+  React.useEffect(() => {
+    return () => {
+      requestIdleCallback(() => {
+        localStorage.setItem('dev-content', JSON.stringify(value.toJSON()));
+      });
+    }
+  }, [value]);
 
   function onChange(change) {
     // console.log("js ", change.value.toJS());
@@ -104,12 +123,27 @@ export const DevEditor = React.forwardRef(function DevEditor({
           .focus()
           .code();
       },
+      numberedList() {
+        editor.current
+          .focus()
+          .insertList('orderedList');
+      },
+      bulletList() {
+        editor.current
+          .focus()
+          .insertList('unOrderedList');
+      },
       insertEmbedText(text) {
         editor.current
           .focus()
           .insertBlock('paragraph')
           .focus()
           .insertText(text);
+      },
+      embed(args) {
+        editor.current
+          .focus()
+          .embed(args);
       }
     };
     console.log("setting editor in cache");

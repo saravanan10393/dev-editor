@@ -1,5 +1,11 @@
 export function utilPlugin() {
   return {
+    onKeyDown(evt, editor, next) {
+      if(evt.key === 'Enter') {
+        return editor.insertBlock('paragraph').focus();
+      }
+      next();
+    },
     queries: {
       isMarkActive: (editor, markType) => {
         return editor.value.activeMarks.some(mark => mark.type === markType);
