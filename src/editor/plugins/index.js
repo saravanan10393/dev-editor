@@ -9,3 +9,5 @@ export * from './inline.toolbar';
 export * from './image';
 export * from './code';
 export * from './video';
+export * from './list';
+export * from './embed';

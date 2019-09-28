@@ -14,12 +14,6 @@ export function imagePlugin() {
         },
       },
     },
-    onKeyDown(evt, editor, next) {
-      if(evt.key === 'Enter' && editor.isBlockOfType('image')) {
-        return editor.insertBlock('paragraph').focus();
-      }
-      next();
-    },
     commands: {
       insertImage(editor, args) {
         if(args && isUrl(args.src)) {
@@ -41,7 +35,7 @@ export function imagePlugin() {
           height: "auto"
         };
         style = (isSelected || isFocused) ? Object.assign(style, {
-          border: "2px solid red"
+          border: "1px solid red"
         }) : style;
         return <img style={style} alt={node.data.get('alt')} src={node.data.get('src')} {...attributes}/>
       }

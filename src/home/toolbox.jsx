@@ -58,6 +58,11 @@ export function ToolBox() {
       text: "{% jsfiddle <fiddle_url> result,html,css %}"
     },
     {
+      id: 'link',
+      label: 'Dev.to',
+      text: "{% link <url> %}"
+    },
+    {
       id: 'medium',
       label: 'Medium',
       text: "{% medium <url> %}"
@@ -91,7 +96,10 @@ export function ToolBox() {
         getEditor().insertVideo(url);
         break;
       default:
-        //
+        getEditor().embed({
+          url,
+          type
+        })
     }
     togglePopup(false);
   }
@@ -137,18 +145,28 @@ export function ToolBox() {
         title="Meta+Shift+v"
         className={styles.tool}
         onClick={() => openExtSrc(extSrcs.VIDEO)} />
+      <Icon
+        name="ul-list"
+        title="bullet list"
+        className={styles.tool}
+        onClick={() => getEditor().bulletList()} />
+      <Icon
+        name="ol-list"
+        title="numbered list"
+        className={styles.tool}
+        onClick={() => getEditor().numberedList()} />
       {
         embeds.map(embed => (
           <Icon
-            name={embed.id}
-            title={embed.id}
+            name={embed.id === 'link' ? 'dev' : embed.id}
+            title={embed.label}
             className={styles.tool}
-            onClick={() => embedExtSrc(embed)} />
+            onClick={() => openExtSrc(embed.id)}/>
         ))
       }
       {
         showPopup &&
-        <ExternalSrcPopup title={`Enter ${type} url`} onDone={onDone} />
+        <ExternalSrcPopup title={`Enter ${type === 'link' ? 'dev.to' : type } url`} onDone={onDone} />
       }
     </div>
   )

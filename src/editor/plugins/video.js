@@ -14,12 +14,6 @@ export function videoPlugin() {
         },
       },
     },
-    onKeyDown(evt, editor, next) {
-      if(evt.key === 'Enter' && editor.isBlockOfType('video')) {
-        return editor.insertBlock('paragraph').focus();
-      }
-      next();
-    },
     commands: {
       insertVideo(editor, args) {
         if(args && isUrl(args.src)) {
