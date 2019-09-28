@@ -7,11 +7,12 @@
 4. Images
 5. Links
 6. Code
+7. List
+8. Live preview of embeds
 
 ### Pipeline
-1. List
-2. Directly post to [dev.to](http://dev.to)
-3. Manage [dev.to](http://dev.to) blogs here
+1. Directly post to [dev.to](http://dev.to)
+2. Manage [dev.to](http://dev.to) blogs here
 
 contributions welcome.
 ---
