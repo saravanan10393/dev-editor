@@ -17,7 +17,9 @@ export function embedPlugin() {
             url,
             type
           }
-        });
+        })
+        .focus()
+        .insertBlock("paragraph");
       }
     },
     renderBlock({ node, isSelected, isFocused }, editor, next) {
